@@ -1,3 +1,7 @@
+"""
+This module generates a web page for the animal 'animal_name'.
+"""
+
 import json
 import data_fetcher
 
