@@ -2,12 +2,14 @@
     <head>
         <meta charset="UTF-8">
         <style>
-        @gray-darker:               #444444;
-        @gray-dark:                 #696969;
-        @gray:                      #999999;
-        @gray-light:                #cccccc;
-        @gray-lighter:              #ececec;
-        @gray-lightest:             lighten(@gray-lighter,4%);
+        :root {
+            --gray-darker:               #444444;
+            --gray-dark:                 #696969;
+            --gray:                      #999999;
+            --gray-light:                #cccccc;
+            --gray-lighter:              #ececec;
+            --gray-lightest:             #f6f6f6;
+        }
 
 
         html {
@@ -30,6 +32,8 @@
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           -moz-font-feature-settings: "liga" on;
+          -webkit-font-feature-settings: "liga" on;
+          font-feature-settings: "liga" on;
           width: 900px;
           margin: auto;
         }
@@ -50,7 +54,7 @@
         }
 
         .card__title {
-          color: @gray-dark;
+          color: var(--gray-dark);
           font-size: 1.25rem;
           font-weight: 300;
           letter-spacing: 2px;

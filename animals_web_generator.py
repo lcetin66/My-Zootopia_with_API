@@ -1,4 +1,5 @@
 import json
+import data_fetcher
 
 def load_data(file_path):
   """ Loads a JSON file """
@@ -33,8 +34,9 @@ def main():
     """ Main function """
     
     animal_name = input("Enter a name of an animal: ")
-    
-    data = load_data("animals_data.json")
+
+    #data = load_data("animals_data.json")
+    data = data_fetcher.fetch_data(animal_name)
 
     output = ''
     for animal_obj in data:
