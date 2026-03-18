@@ -19,7 +19,7 @@ def serialize_animal(animal_obj):
 
     html = "<li class='cards__item'>"
     html += f"<div class='card__title'>{name}</div>"
-    html += "<div class='cards__text'>"
+    html += "<div class='card__text'>"
     html += f"<ul>"
     html += f"<li><strong>Diet:</strong> {diet}</li>"
     html += f"<li><strong>Skin type:</strong> {skin_type}</li>"
