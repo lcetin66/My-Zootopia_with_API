@@ -30,7 +30,6 @@ A dynamic web page generator that fetches detailed animal data from an external 
 ├── data_fetcher.py             # API communication module
 ├── requirements.txt            # Project dependencies
 ├── animals_data.json           # Local backup/reference data
-├── .env                        # Private environment variables (ignored by git)
 └── .gitignore                  # Git exclusion rules
 ```
 
