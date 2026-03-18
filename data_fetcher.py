@@ -2,8 +2,13 @@
 This module fetches the animals data for the animal 'animal_name'.
 """
 import requests
+import os
+from dotenv import load_dotenv
+from requests.exceptions import Timeout, HTTPError, RequestException
 
-API_KEY = 'S2laHELD7bSeHLjhhNBhcEv1Goyc1h3TCh2JbbrQ'
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+
 
 def fetch_data(animal_name):
     """

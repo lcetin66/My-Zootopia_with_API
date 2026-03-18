@@ -35,8 +35,12 @@ def main():
     
     animal_name = input("Enter a name of an animal: ")
 
-    #data = load_data("animals_data.json")
+    #old ->data = load_data("animals_data.json")
     data = data_fetcher.fetch_data(animal_name)
+    
+    if not data:
+        print(f'The animal "{animal_name}" was not found.')
+        return
 
     output = ''
     for animal_obj in data:
