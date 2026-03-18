@@ -4,6 +4,7 @@ def load_data(file_path):
   """ Loads a JSON file """
   with open(file_path, "r") as handle:
     return json.load(handle)
+    
 
 def serialize_animal(animal_obj):
     """Read JSON and convert it to HTML list items"""
@@ -30,6 +31,9 @@ def serialize_animal(animal_obj):
 
 def main():
     """ Main function """
+    
+    animal_name = input("Enter a name of an animal: ")
+    
     data = load_data("animals_data.json")
 
     output = ''
