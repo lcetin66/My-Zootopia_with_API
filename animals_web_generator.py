@@ -1,9 +1,7 @@
-"""
-This module generates a web page for the animal 'animal_name'.
-"""
 
 import json
 import data_fetcher
+import os
 
 def load_data(file_path):
   """ Loads a JSON file """
@@ -37,6 +35,13 @@ def serialize_animal(animal_obj):
 def main():
     """ Main function """
     
+    # Get current script path for relative file loading
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    data_path = os.path.join(current_dir, "animals_data.json")
+    template_path = os.path.join(current_dir, "animals_template.html")
+    output_path = os.path.join(current_dir, "animals.html")
+
     animal_name = input("Enter a name of an animal: ")
 
     #old ->data = load_data("animals_data.json")
@@ -47,19 +52,19 @@ def main():
         return
 
     # Save data to JSON file for copying
-    with open('animals_data.json', 'w', encoding='utf-8') as animal_files:
+    with open(data_path, 'w', encoding='utf-8') as animal_files:
         json.dump(data, animal_files, indent=4)
 
     output = ''
     for animal_obj in data:
         output += serialize_animal(animal_obj)
 
-    with open('animals_template.html', 'r', encoding='utf-8') as template_file:
+    with open(template_path, 'r', encoding='utf-8') as template_file:
         html_content = template_file.read()
 
     html_content = html_content.replace('__REPLACE_ANIMALS_INFO__', output)
 
-    with open('animals.html', 'w', encoding='utf-8') as html_file:
+    with open(output_path, 'w', encoding='utf-8') as html_file:
         html_file.write(html_content)
 
 
