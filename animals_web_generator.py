@@ -46,17 +46,21 @@ def main():
         print(f'The animal "{animal_name}" was not found.')
         return
 
+    # Save data to JSON file for copying
+    with open('animals_data.json', 'w', encoding='utf-8') as animal_files:
+        json.dump(data, animal_files, indent=4)
+
     output = ''
     for animal_obj in data:
         output += serialize_animal(animal_obj)
 
-    with open('animals_template.html', 'r', encoding='utf-8') as data_file:
-        html_content = data_file.read()
+    with open('animals_template.html', 'r', encoding='utf-8') as template_file:
+        html_content = template_file.read()
 
     html_content = html_content.replace('__REPLACE_ANIMALS_INFO__', output)
 
-    with open('animals.html', 'w', encoding='utf-8') as data_file:
-        data_file.write(html_content)
+    with open('animals.html', 'w', encoding='utf-8') as html_file:
+        html_file.write(html_content)
 
 
 if __name__ == '__main__':
